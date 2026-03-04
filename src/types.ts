@@ -49,21 +49,21 @@ export const PROJECTS: Project[] = [
   // Website Projects
   {
     id: 'w1',
-    title: 'Luxe Global',
-    description: 'High-end e-commerce platform with immersive 3D product visualization.',
+    title: 'Movie Theater BPP',
+    description: 'Built a responsive movie theater website',
     category: 'website',
-    bgColor: '#450a0a', // Deep Red
+    bgColor: '#450a0a',
     image: 'https://picsum.photos/seed/w1/1600/900',
-    tags: ['Next.js', 'Three.js']
+    tags: ['React', 'JavaScript', 'Tailwind CSS', 'Firebase']
   },
   {
     id: 'w2',
-    title: 'Nexus Cloud',
-    description: 'Enterprise-grade cloud management dashboard with real-time analytics.',
+    title: 'Brain Rat',
+    description: 'Research prototype of a digital Rat Brain Atlas',
     category: 'website',
-    bgColor: '#172554', // Deep Blue
+    bgColor: '#172554',
     image: 'https://picsum.photos/seed/w2/1600/900',
-    tags: ['React', 'D3.js']
+    tags: ['Next.js', 'Javascript', 'Tailwind CSS', 'Mongodb', 'Python']
   },
   {
     id: 'w3',
