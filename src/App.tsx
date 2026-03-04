@@ -43,22 +43,22 @@ function Home() {
 
         {/* Floating Glass Elements for Hero */}
         <motion.div
-          animate={{ 
+          animate={{
             y: [0, -40, 0],
             rotate: [0, 10, 0],
             scale: [1, 1.1, 1]
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 -left-20 w-96 h-96 liquid-glass rounded-full blur-3xl opacity-40"
+          className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-500/10 rounded-full blur-[100px] opacity-40"
         />
         <motion.div
-          animate={{ 
+          animate={{
             y: [0, 50, 0],
             rotate: [0, -15, 0],
             scale: [1, 1.2, 1]
           }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] liquid-glass rounded-full blur-[100px] opacity-30"
+          className="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] bg-blue-600/10 rounded-full blur-[120px] opacity-30"
         />
 
         <motion.div
@@ -78,12 +78,12 @@ function Home() {
       </section>
 
       {/* Immersive Mobile Experience */}
-      <div id="project-1">
+      {/* <div id="project-1">
         <div className="py-20 px-6 max-w-7xl mx-auto">
           <h2 className="text-xs font-mono uppercase tracking-[0.5em] opacity-30 mb-20">01 / Mobile Applications</h2>
         </div>
         <MobileExperience projects={mobileProjects} />
-      </div>
+      </div> */}
 
       {/* Immersive Website Experience */}
       <div id="project-2">
@@ -125,7 +125,7 @@ export default function App() {
     <Router>
       <div className="relative bg-white text-black selection:bg-black/10">
         <Navbar />
-        
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
@@ -133,11 +133,9 @@ export default function App() {
         </Routes>
 
         {/* Footer */}
-        <footer className="py-20 px-6 border-t border-black/5 bg-white/50 backdrop-blur-3xl">
+        <footer className="py-20 px-6 border-t border-black/5 bg-white/10 backdrop-blur-3xl">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="space-y-4 text-center md:text-left">
-              <p className="text-2xl font-serif font-bold tracking-tighter">PORTFOLIO<span className="text-black/20">.</span></p>
-              <p className="text-sm font-mono opacity-30">© 2026 DESIGNED & CODED WITH PASSION</p>
             </div>
             <div className="flex space-x-12">
               <div className="space-y-4">

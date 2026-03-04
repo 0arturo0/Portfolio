@@ -19,7 +19,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="min-h-screen py-32 px-6 bg-white">
+    <section id="contact" className="py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
           {/* Left Column: Intro & Socials */}
@@ -29,19 +29,20 @@ export default function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <h2 className="text-5xl font-serif font-bold tracking-tight text-black">About Me</h2>
+              <h2 className="text-5xl font-serif font-bold tracking-tight text-black">
+                Contact Me
+              </h2>
               <p className="text-xl text-black/60 leading-relaxed max-w-lg">
-                I'm a multidisciplinary developer and designer focused on creating immersive digital experiences that blend aesthetics with cutting-edge technology.
+                Software Engineer with a background in Computer Science and a Master's in Artificial Intelligence, With experience in full-stack development and AI
               </p>
             </motion.div>
 
             <div className="space-y-6">
               <h3 className="text-xs uppercase tracking-widest font-bold opacity-20">Connect</h3>
               <div className="flex flex-col space-y-4">
-                <SocialLink icon={<Mail className="w-5 h-5" />} label="hello@example.com" href="mailto:hello@example.com" />
-                <SocialLink icon={<Github className="w-5 h-5" />} label="github.com/username" href="#" />
-                <SocialLink icon={<Linkedin className="w-5 h-5" />} label="linkedin.com/in/username" href="#" />
-                <SocialLink icon={<Instagram className="w-5 h-5" />} label="@username" href="#" />
+                <SocialLink icon={<Mail className="w-5 h-5" />} label="arturofh01@gmail.com" href="mailto:arturofh01@gmail.com" />
+                <SocialLink icon={<Github className="w-5 h-5" />} label="https://github.com/0arturo0" href="https://github.com/0arturo0" />
+                <SocialLink icon={<Linkedin className="w-5 h-5" />} label="https://www.linkedin.com/in/arturof01/" href="https://www.linkedin.com/in/arturof01/" />
               </div>
             </div>
           </div>
@@ -61,7 +62,7 @@ export default function ContactSection() {
                   placeholder="Arturo Kanguro"
                   value={formState.name}
                   onChange={e => setFormState({ ...formState, name: e.target.value })}
-                  className="w-full px-6 py-4 bg-white rounded-2xl border border-black/5 focus:outline-none focus:ring-2 focus:ring-black/5 transition-all"
+                  className="w-full px-6 py-4 bg-white rounded-2xl border border-black/5 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500/20 transition-all"
                 />
               </div>
 
@@ -73,7 +74,7 @@ export default function ContactSection() {
                   placeholder="arturo@example.com"
                   value={formState.email}
                   onChange={e => setFormState({ ...formState, email: e.target.value })}
-                  className="w-full px-6 py-4 bg-white rounded-2xl border border-black/5 focus:outline-none focus:ring-2 focus:ring-black/5 transition-all"
+                  className="w-full px-6 py-4 bg-white rounded-2xl border border-black/5 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500/20 transition-all"
                 />
               </div>
 
@@ -85,13 +86,13 @@ export default function ContactSection() {
                   placeholder="Tell me about your project..."
                   value={formState.message}
                   onChange={e => setFormState({ ...formState, message: e.target.value })}
-                  className="w-full px-6 py-4 bg-white rounded-2xl border border-black/5 focus:outline-none focus:ring-2 focus:ring-black/5 transition-all resize-none"
+                  className="w-full px-6 py-4 bg-white rounded-2xl border border-black/5 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500/20 transition-all resize-none"
                 />
               </div>
 
               <button
                 disabled={isSubmitting}
-                className="w-full py-5 bg-black text-white rounded-2xl font-bold uppercase tracking-widest text-xs flex items-center justify-center space-x-3 hover:opacity-80 transition-all disabled:opacity-50"
+                className="w-full py-5 bg-black text-white rounded-2xl font-bold uppercase tracking-widest text-xs flex items-center justify-center space-x-3 hover:bg-zinc-900 transition-all disabled:opacity-50 border border-black hover:border-orange-500/30 shadow-xl shadow-black/10"
               >
                 {isSubmitting ? (
                   <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -118,7 +119,7 @@ function SocialLink({ icon, label, href }: { icon: React.ReactNode; label: strin
       href={href}
       className="flex items-center space-x-4 group text-black/70 hover:text-black transition-colors"
     >
-      <span className="p-3 rounded-full bg-white border border-black/5 group-hover:bg-black group-hover:text-white transition-all duration-300">
+      <span className="p-3 rounded-full bg-white border border-black/5 group-hover:bg-black group-hover:text-white group-hover:border-orange-500/30 group-hover:ring-4 group-hover:ring-orange-500/5 transition-all duration-300">
         {icon}
       </span>
       <span className="text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">{label}</span>

@@ -77,12 +77,12 @@ export const PROJECTS: Project[] = [
   // AI Projects (CNN Layers)
   {
     id: 'a1',
-    title: 'Vision Core',
+    title: 'Virtual Board',
     description: 'Input Layer: Real-time image preprocessing and feature extraction.',
     category: 'ml-ai',
-    bgColor: '#422006', // Deep Brown/Orange
+    bgColor: '#422006',
     image: 'https://picsum.photos/seed/a1/1200/800',
-    tags: ['PyTorch', 'CUDA']
+    tags: ['TensorFlow', 'Keras', 'Python', 'OpenCV', 'NumPy', 'mediapipe']
   },
   {
     id: 'a2',

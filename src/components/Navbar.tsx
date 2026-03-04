@@ -85,11 +85,11 @@ export default function Navbar() {
                 onMouseLeave={() => setIsProjectsOpen(false)}
                 className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 liquid-glass rounded-3xl p-2 overflow-hidden"
               >
-                <ProjectLink
+                {/* <ProjectLink
                   icon={<Smartphone className="w-4 h-4" />}
                   label="Mobile Apps"
                   onClick={() => scrollToSection('project-1')}
-                />
+                /> */}
                 <ProjectLink
                   icon={<Globe className="w-4 h-4" />}
                   label="Websites"
