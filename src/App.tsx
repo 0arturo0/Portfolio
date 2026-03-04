@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React from 'react';
 import { motion } from 'motion/react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
@@ -10,7 +5,7 @@ import Navbar from './components/Navbar';
 import AboutSection from './components/AboutSection';
 import { PROJECTS } from './types';
 import { ArrowDown } from 'lucide-react';
-
+import HeroSection from './components/HeroSection';
 import MobileExperience from './components/MobileExperience';
 import WebsiteExperience from './components/WebsiteExperience';
 import AIExperience from './components/AIExperience';
@@ -31,14 +26,7 @@ function Home() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="text-center space-y-8 z-10"
         >
-          <h1 className="text-7xl md:text-[10rem] font-serif font-bold tracking-tighter leading-none text-black">
-            CRAFTING<br />
-            <span className="italic text-black/5">DIGITAL</span><br />
-            REALITIES
-          </h1>
-          <p className="text-xl md:text-2xl font-light tracking-tight text-black/40 max-w-2xl mx-auto">
-            A creative developer specializing in high-performance web, mobile, and intelligent systems.
-          </p>
+          <HeroSection />
         </motion.div>
 
         {/* Floating Glass Elements for Hero */}
