@@ -89,17 +89,8 @@ export const PROJECTS: Project[] = [
     title: 'Deep Logic',
     description: 'Hidden Layer: Complex pattern recognition and semantic understanding.',
     category: 'ml-ai',
-    bgColor: '#312e81', // Deep Indigo
+    bgColor: '#312e81',
     image: 'https://picsum.photos/seed/a2/1200/800',
     tags: ['TensorFlow', 'Keras']
-  },
-  {
-    id: 'a3',
-    title: 'Final Node',
-    description: 'Output Layer: Predictive analysis and decision-making synthesis.',
-    category: 'ml-ai',
-    bgColor: '#1e1b4b', // Deep Purple
-    image: 'https://picsum.photos/seed/a3/1200/800',
-    tags: ['Scikit-learn', 'FastAPI']
   }
 ];

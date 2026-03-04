@@ -21,10 +21,17 @@ export default function AIExperience({ projects }: AIExperienceProps) {
 
   // Background color interpolation
   const bgColors = projects.map(p => p.bgColor);
+  const bgColorInputRange = projects.length > 0
+    ? [0, ...projects.map((_, i) => (i + 1) / projects.length)]
+    : [0, 1];
+  const bgColorOutputRange = projects.length > 0
+    ? ['#ffffff', ...bgColors]
+    : ['#ffffff', '#ffffff'];
+
   const bgColor = useTransform(
     scrollYProgress,
-    [0.1, 0.35, 0.6, 0.85],
-    ['#ffffff', ...bgColors]
+    bgColorInputRange,
+    bgColorOutputRange
   );
 
   useEffect(() => {
