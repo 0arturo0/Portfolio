@@ -15,6 +15,7 @@ export interface Project {
   bgColor: string;
   image: string;
   tags: string[];
+  folderName?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -26,7 +27,8 @@ export const PROJECTS: Project[] = [
     category: 'mobile',
     bgColor: '#7f1d1d', // Dark Red
     image: 'https://picsum.photos/seed/m1/800/1600',
-    tags: ['React Native', 'Firebase']
+    tags: ['React Native', 'Firebase'],
+    folderName: 'Mobile/EcoTrack'
   },
   {
     id: 'm2',
@@ -35,7 +37,8 @@ export const PROJECTS: Project[] = [
     category: 'mobile',
     bgColor: '#1e3a8a', // Dark Blue
     image: 'https://picsum.photos/seed/m2/800/1600',
-    tags: ['Flutter', 'HealthKit']
+    tags: ['Flutter', 'HealthKit'],
+    folderName: 'Mobile/FitSync'
   },
   {
     id: 'm3',
@@ -44,7 +47,8 @@ export const PROJECTS: Project[] = [
     category: 'mobile',
     bgColor: '#064e3b', // Dark Green
     image: 'https://picsum.photos/seed/m3/800/1600',
-    tags: ['SwiftUI', 'CoreAudio']
+    tags: ['SwiftUI', 'CoreAudio'],
+    folderName: 'Mobile/ZenSpace'
   },
   // Website Projects
   {
@@ -54,7 +58,8 @@ export const PROJECTS: Project[] = [
     category: 'website',
     bgColor: '#450a0a', // Deep Red
     image: 'https://picsum.photos/seed/w1/1600/900',
-    tags: ['Next.js', 'Three.js']
+    tags: ['Next.js', 'Three.js'],
+    folderName: 'Web/LuxeGlobal'
   },
   {
     id: 'w2',
@@ -63,7 +68,8 @@ export const PROJECTS: Project[] = [
     category: 'website',
     bgColor: '#172554', // Deep Blue
     image: 'https://picsum.photos/seed/w2/1600/900',
-    tags: ['React', 'D3.js']
+    tags: ['React', 'D3.js'],
+    folderName: 'Web/NexusCloud'
   },
   {
     id: 'w3',
@@ -72,7 +78,8 @@ export const PROJECTS: Project[] = [
     category: 'website',
     bgColor: '#022c22', // Deep Green
     image: 'https://picsum.photos/seed/w3/1600/900',
-    tags: ['Vite', 'GSAP']
+    tags: ['Vite', 'GSAP'],
+    folderName: 'Web/AuraDesign'
   },
   // AI Projects (CNN Layers)
   {
@@ -82,7 +89,8 @@ export const PROJECTS: Project[] = [
     category: 'ml-ai',
     bgColor: '#422006',
     image: 'https://picsum.photos/seed/a1/1200/800',
-    tags: ['TensorFlow', 'Keras', 'Python', 'OpenCV', 'NumPy', 'mediapipe']
+    tags: ['TensorFlow', 'Keras', 'Python', 'OpenCV', 'NumPy', 'mediapipe'],
+    folderName: 'AI/VirtualBoard'
   },
   {
     id: 'a2',
@@ -91,6 +99,7 @@ export const PROJECTS: Project[] = [
     category: 'ml-ai',
     bgColor: '#312e81',
     image: 'https://picsum.photos/seed/a2/1200/800',
-    tags: ['TensorFlow', 'Keras']
+    tags: ['TensorFlow', 'Keras'],
+    folderName: 'AI/DeepLogic'
   }
 ];
