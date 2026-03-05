@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { Project } from '../types';
+import ProjectModal from './ProjectModal';
 
 interface MobileExperienceProps {
   projects: Project[];
@@ -33,53 +34,70 @@ export default function MobileExperience({ projects }: MobileExperienceProps) {
     return () => unsubscribe();
   }, [bgColor]);
 
+  const [modalOpen, setModalOpen] = useState(false);
+  const [activeFolder, setActiveFolder] = useState<string | undefined>();
+
+  const handleOpenModal = (folderName?: string) => {
+    setActiveFolder(folderName);
+    setModalOpen(true);
+  };
+
   return (
-    <div ref={containerRef} className="relative h-[400vh]">
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+    <>
+      <ProjectModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        folderName={activeFolder}
+      />
+      <div ref={containerRef} className="relative h-[400vh]">
+        <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
 
-        {/* Phone Mockup Entrance */}
-        <motion.div
-          style={{ scale: phoneScale, opacity: frameOpacity }}
-          className="relative w-[300px] h-[600px] bg-zinc-900 rounded-[3rem] border-[8px] border-zinc-800 shadow-2xl z-50 flex items-center justify-center"
-        >
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-zinc-800 rounded-b-2xl" />
-          <div className="w-full h-full rounded-[2.5rem] bg-zinc-950 overflow-hidden" />
-        </motion.div>
+          {/* Phone Mockup Entrance */}
+          <motion.div
+            style={{ scale: phoneScale, opacity: frameOpacity }}
+            className="relative w-[300px] h-[600px] bg-zinc-900 rounded-[3rem] border-[8px] border-zinc-800 shadow-2xl z-50 flex items-center justify-center pointer-events-none"
+          >
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-zinc-800 rounded-b-2xl" />
+            <div className="w-full h-full rounded-[2.5rem] bg-zinc-950 overflow-hidden" />
+          </motion.div>
 
-        {/* Mobile UI Content */}
-        <motion.div
-          style={{ opacity: contentOpacity }}
-          className="absolute inset-0 w-full h-full flex flex-col items-center"
-        >
-          {projects.map((project, index) => {
-            const total = projects.length;
-            const sectionSize = 0.8 / total;
-            const start = 0.15 + index * sectionSize;
-            const end = start + sectionSize;
+          {/* Mobile UI Content */}
+          <motion.div
+            style={{ opacity: contentOpacity }}
+            className="absolute inset-0 w-full h-full flex flex-col items-center pointer-events-none"
+          >
+            {projects.map((project, index) => {
+              const total = projects.length;
+              const sectionSize = 0.8 / total;
+              const start = 0.15 + index * sectionSize;
+              const end = start + sectionSize;
 
-            return (
-              <MobileProjectItem
-                key={project.id}
-                project={project}
-                progress={scrollYProgress}
-                range={[start, end]}
-              />
-            );
-          })}
-        </motion.div>
+              return (
+                <MobileProjectItem
+                  key={project.id}
+                  project={project}
+                  progress={scrollYProgress}
+                  range={[start, end]}
+                  onOpenModal={handleOpenModal}
+                />
+              );
+            })}
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
-function MobileProjectItem({ project, progress, range }: { project: Project, progress: any, range: [number, number], key?: string }) {
+function MobileProjectItem({ project, progress, range, onOpenModal }: { project: Project, progress: any, range: [number, number], onOpenModal: (folderName?: string) => void, key?: string }) {
   const opacity = useTransform(progress, [range[0], range[0] + 0.05, range[1] - 0.05, range[1]], [0, 1, 1, 0]);
   const y = useTransform(progress, [range[0], range[1]], [100, -100]);
   const scale = useTransform(progress, [range[0], range[0] + 0.1, range[1] - 0.1, range[1]], [0.8, 1, 1, 0.8]);
+  const pointerEvents = useTransform(progress, (v: number) => (v >= range[0] && v <= range[1] ? "auto" : "none"));
 
   return (
     <motion.div
-      style={{ opacity, y, scale }}
+      style={{ opacity, y, scale, pointerEvents }}
       className="absolute inset-0 flex items-center justify-center px-6"
     >
       <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -95,8 +113,11 @@ function MobileProjectItem({ project, progress, range }: { project: Project, pro
           </div>
         </div>
 
-        <div className="order-1 md:order-2 flex justify-center">
-          <div className="relative w-[280px] aspect-[9/19] bg-zinc-900 rounded-[2.5rem] p-3 shadow-2xl border-4 border-zinc-800 overflow-hidden">
+        <div className="order-1 md:order-2 flex flex-col items-center space-y-4">
+          <div
+            className="relative w-[280px] aspect-[9/19] bg-zinc-900 rounded-[2.5rem] p-3 shadow-2xl border-4 border-zinc-800 overflow-hidden cursor-pointer group hover:scale-105 transition-transform duration-300 pointer-events-auto"
+            onClick={() => onOpenModal(project.folderName)}
+          >
             <img
               src={project.image}
               alt={project.title}
@@ -104,6 +125,14 @@ function MobileProjectItem({ project, progress, range }: { project: Project, pro
               referrerPolicy="no-referrer"
             />
           </div>
+
+          {/* Display Label Below Image */}
+          <button
+            onClick={() => onOpenModal(project.folderName)}
+            className="flex items-center space-x-2 px-6 py-3 rounded-full bg-black/5 hover:bg-black/10 text-black/60 hover:text-black transition-colors pointer-events-auto"
+          >
+            <span className="font-medium tracking-wide">📸 Click to View Gallery</span>
+          </button>
         </div>
       </div>
     </motion.div>
