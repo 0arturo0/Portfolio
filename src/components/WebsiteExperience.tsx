@@ -19,21 +19,6 @@ export default function WebsiteExperience({ projects }: WebsiteExperienceProps) 
   const frameOpacity = useTransform(scrollYProgress, [0, 0.1, 0.15], [1, 1, 0]);
   const contentOpacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
 
-  // Background color interpolation
-  const bgColors = projects.map(p => p.bgColor);
-  const bgColor = useTransform(
-    scrollYProgress,
-    [0.15, 0.4, 0.65, 0.9],
-    ['#ffffff', ...bgColors]
-  );
-
-  useEffect(() => {
-    const unsubscribe = bgColor.on("change", (latest) => {
-      document.body.style.backgroundColor = latest;
-    });
-    return () => unsubscribe();
-  }, [bgColor]);
-
   const [modalOpen, setModalOpen] = useState(false);
   const [activeFolder, setActiveFolder] = useState<string | undefined>();
 

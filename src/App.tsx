@@ -70,7 +70,7 @@ function Home() {
       </div> */}
 
       {/* Immersive Website Experience */}
-      <div id="project-2">
+      <div id="project-2" className="bg-zinc-100 border-y border-black/5">
         <div className="py-20 px-6 max-w-7xl mx-auto">
           <h2 className="text-xs font-mono uppercase tracking-[0.5em] opacity-30 mb-20">02 / Web Experiences</h2>
         </div>
@@ -78,7 +78,7 @@ function Home() {
       </div>
 
       {/* Immersive AI Experience (CNN) */}
-      <div id="project-3">
+      <div id="project-3" className="bg-zinc-100 border-b border-black/5">
         <div className="py-20 px-6 max-w-7xl mx-auto">
           <h2 className="text-xs font-mono uppercase tracking-[0.5em] opacity-30 mb-20">03 / Machine Intelligence</h2>
         </div>

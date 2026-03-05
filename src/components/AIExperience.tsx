@@ -20,28 +20,6 @@ export default function AIExperience({ projects }: AIExperienceProps) {
     restDelta: 0.001
   });
 
-  // Background color interpolation
-  const bgColors = projects.map(p => p.bgColor);
-  const bgColorInputRange = projects.length > 0
-    ? [0, ...projects.map((_, i) => (i + 1) / projects.length)]
-    : [0, 1];
-  const bgColorOutputRange = projects.length > 0
-    ? ['#ffffff', ...bgColors]
-    : ['#ffffff', '#ffffff'];
-
-  const bgColor = useTransform(
-    scrollYProgress,
-    bgColorInputRange,
-    bgColorOutputRange
-  );
-
-  useEffect(() => {
-    const unsubscribe = bgColor.on("change", (latest) => {
-      document.body.style.backgroundColor = latest;
-    });
-    return () => unsubscribe();
-  }, [bgColor]);
-
   const progressPercentRaw = useTransform(smoothProgress, [0, 1], [0, 100]);
   const [displayPercentage, setDisplayPercentage] = useState(0);
 
