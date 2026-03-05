@@ -5,12 +5,11 @@ import Navbar from './components/Navbar';
 import AboutSection from './components/AboutSection';
 import { PROJECTS } from './types';
 import { ArrowDown } from 'lucide-react';
-
+import HeroSection from './components/HeroSection';
 import MobileExperience from './components/MobileExperience';
 import WebsiteExperience from './components/WebsiteExperience';
 import AIExperience from './components/AIExperience';
 import ContactSection from './components/ContactSection';
-import HeroSection from './components/LandingSection';
 
 function Home() {
   const mobileProjects = PROJECTS.filter(p => p.category === 'mobile');
@@ -21,7 +20,12 @@ function Home() {
     <>
       {/* Hero Section */}
       <section className="h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden bg-white">
-        <motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center space-y-8 z-10"
+        >
           <HeroSection />
         </motion.div>
 
