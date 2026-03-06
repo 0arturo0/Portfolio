@@ -53,23 +53,23 @@ export const PROJECTS: Project[] = [
   // Website Projects
   {
     id: 'w1',
-    title: 'Movie Theater BPP',
-    description: 'Built a responsive movie theater website',
-    category: 'website',
-    bgColor: '#450a0a',
-    image: 'https://picsum.photos/seed/w1/1600/900',
-    tags: ['React', 'JavaScript', 'Tailwind CSS', 'Firebase'],
-    folderName: 'Web/LuxeGlobal'
-  },
-  {
-    id: 'w2',
     title: 'Brain Rat',
     description: 'Research prototype of a digital Rat Brain Atlas',
     category: 'website',
     bgColor: '#172554',
     image: 'https://picsum.photos/seed/w2/1600/900',
     tags: ['Next.js', 'Javascript', 'Tailwind CSS', 'Mongodb', 'Python'],
-    folderName: 'Web/NexusCloud'
+    folderName: 'Web/Brain_Rat'
+  },
+  {
+    id: 'w2',
+    title: 'Movie Theater BPP',
+    description: 'Built a responsive movie theater website',
+    category: 'website',
+    bgColor: '#450a0a',
+    image: 'https://picsum.photos/seed/w1/1600/900',
+    tags: ['React', 'JavaScript', 'Tailwind CSS', 'Firebase'],
+    folderName: 'Web/AuraDesign'
   },
   {
     id: 'w3',
